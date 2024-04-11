@@ -37,19 +37,39 @@
 	// 	"DISPLAY": "${localEnv:DISPLAY}"
 	// },
 
+	// Display on Linux host
+	"containerEnv": {
+        "DISPLAY": "unix:0"
+    },
+	
+    "mounts": [
+        "source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind,consistency=cached"
+    ],
 
-	// Set *default* container specific settings.json values on container create.
-	"settings": { 
-		"terminal.integrated.shell.linux": "/bin/bash"
+
+	"customizations": {
+		"vscode": {
+			// Set *default* container specific settings.json values on container create.
+			"settings": {
+				"terminal.integrated.shell.linux": "/bin/bash"
+			},
+			// Add the IDs of extensions you want installed when the container is created.
+			"extensions": [
+				"ms-vscode.cpptools"
+			]
+		}
 	},
-
-	// Add the IDs of extensions you want installed when the container is created.
-	"extensions": [
-		"ms-vscode.cpptools"
-	],
+	
+	// "settings": { 
+	// 	"terminal.integrated.shell.linux": "/bin/bash"
+	// },
+	
+	// "extensions": [
+	// 	"ms-vscode.cpptools"
+	// ],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "uname -a",
+	"postCreateCommand": "uname -a",
 
 	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	"remoteUser": "vscode",
