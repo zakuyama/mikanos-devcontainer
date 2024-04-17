@@ -30,21 +30,21 @@
 	// Uncomment to enable WSLg integration
 	// =======================================================================
 
-	// "mounts": [
-	// 	"type=bind,source=/tmp/.X11-unix,target=/tmp/.X11-unix"
-	// ],
-	// "containerEnv": {
-	// 	"DISPLAY": "${localEnv:DISPLAY}"
-	// },
+	"mounts": [
+		"type=bind,source=/tmp/.X11-unix,target=/tmp/.X11-unix"
+	],
+	"containerEnv": {
+		"DISPLAY": "${localEnv:DISPLAY}"
+	},
 
 	// Display on Linux host
-	"containerEnv": {
-        "DISPLAY": "unix:0"
-    },
+	// "containerEnv": {
+    //     "DISPLAY": "unix:0"
+    // },
 	
-    "mounts": [
-        "source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind,consistency=cached"
-    ],
+    // "mounts": [
+    //     "source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind,consistency=cached"
+    // ],
 
 
 	"customizations": {
